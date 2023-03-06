@@ -23,7 +23,9 @@ public class BankService {
      * @param amount the amount to be deposited.
      */
     public void deposit(double amount){
-
+        // this.balance += amount;
+        // this.balance = roundAvoid(this.balance);
+        balance = balance+amount;
     }
 
     /**
@@ -32,7 +34,17 @@ public class BankService {
      * @param amount the amount to be withdrawn.
      */
     public void withdraw(double amount){
-
+        // if(this.balance >= amount){
+        //     this.balance -= amount;
+        //     this.balance = roundAvoid(this.balance);
+        // }else{
+        //     System.out.println("\nWithdraw failed!\nNot enought money in the account.");
+        //     System.out.println("Please check yout balancr.\n");
+        // }
+        if(balance - amount >= 0){
+            System.err.println("Insufficient funds");
+            balance = balance - amount;
+        }
     }
 
     /**
@@ -40,6 +52,7 @@ public class BankService {
      * @return the user's balance.
      */
     public double getBalance(){
-        return 0;
+        // return this.balance;
+        return balance;
     }
 }
